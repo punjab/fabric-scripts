@@ -12,7 +12,8 @@ env.dbname = 'mydatabase'
 env.dbuser = 'myusername'
 env.dbpass = 'mypassword'
 
-def backup_mysql():    
+def backup_mysql():
+    '''Backup MySQL database from remote server to local host'''
     date = time.strftime('%Y%m%d%H%M%S')
     filename = '/tmp/%(database)s-backup-%(date)s.sql.gz' % { 
         'database': env.dbname,
