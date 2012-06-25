@@ -1,6 +1,6 @@
 ## Fabric Scripts
 
-[Fabric](fabfile.org) script for various simple tasks go here.
+[Fabric](http://fabfile.org) script for various simple tasks go here.
 
 To install Fabric
 
