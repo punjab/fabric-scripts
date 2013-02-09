@@ -1,0 +1,3 @@
+*.pyc
+fabfile/hosts.txt
+fabfile/result.txt
