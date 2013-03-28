@@ -6,12 +6,12 @@ env.use_ssh_config = True # read ~/.ssh/.sshconfig
 import time
 from os.path import basename, exists
 
-env.hosts = ['mywebapp.com']
+# env.hosts = ['mywebapp.com']
 env.dbname = 'mydatabase'
 env.dbuser = 'myusername'
 env.dbpass = 'mypassword'
 
-@task(default=True)
+@task
 def backup_mysql():
     '''Backup MySQL database from remote server to local host'''
     date = time.strftime('%Y%m%d%H%M%S')
