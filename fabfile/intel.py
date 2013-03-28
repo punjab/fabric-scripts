@@ -21,6 +21,17 @@ def list_connections():
     run("netstat -nat | awk '{ print $5}' | cut -d: -f1,2 | sed -e 's/[^0-9.:]*//g' | sort |  uniq > `echo $HOSTNAME`.txt")
     get(env.host+".txt")
 
+def get_stats():
+  """get hardware and software stats about a Linux machine"""
+  with cd("/tmp"):
+    run("lsb_release -d")
+    run("cat /proc/cpuinfo |grep processor|wc -l")
+    run("free -m")
+    run("egrep --color 'Mem|Cache|Swap' /proc/meminfo")
+    run("df -TH")
+    run("ldd --version|grep ldd")
+    run("perl -v |grep 'This is perl'")
+
 @task
 def clean():
   """ remove all folders """
@@ -29,9 +40,10 @@ def clean():
 @task(default=True)    
 def gather_intel():
   """ main intel function """
-  read_hostfile()
+  # read_hostfile()
   distribute_keys()
-  list_connections()
-  local("python ip2url.py")
+  get_stats()
+  # list_connections()
+  # local("python lib/ip2url.py")
   clean()
   
