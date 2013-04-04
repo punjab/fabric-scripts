@@ -4,7 +4,7 @@ from fabric.api import task
 from fabric.contrib.files import exists
 
 env.use_ssh_config = True # read ~/.ssh/.sshconfig
-#env.hosts = ['crowd-db-master.as.it.ubc.ca', 'jira-db-master.as.it.ubc.ca', 'confluence-db-master.as.it.ubc.ca', 'bamboo-db-master.as.it.ubc.ca']
+#env.hosts = ['']
 
 @task
 def distribute_keys():
