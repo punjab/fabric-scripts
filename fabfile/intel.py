@@ -64,7 +64,7 @@ def restart_zabbix():
     run('sleep 5')
     sudo('/usr/local/sbin/zabbix_agentd -c /usr/local/etc/zabbix_agentd.conf')
     
-@task(default=True)    
+@task 
 def gather_intel():
     """ main intel function """
     # read_hostfile()
